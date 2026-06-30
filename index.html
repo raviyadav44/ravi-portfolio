@@ -2,11 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ravi-portfolio</title>
+
+    <title>Ravi Yadav — AI &amp; Data Engineer</title>
+    <meta
+      name="description"
+      content="Ravi Yadav — AI Developer and Data Engineer building automation-heavy, data-driven systems. Projects, experience, and ways to get in touch."
+    />
+
+    <!-- Fonts: Press Start 2P (display), Space Mono (mono), Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Set theme before paint so there's no light/dark flash on load -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (t === "dark" || (!t && prefersDark)) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
+    <!--
+      Hidden static form so Netlify can detect the contact form at build time.
+      The real, interactive form lives in src/components/sections/Contact.jsx
+      and posts to this. Keep the name + fields in sync with that component.
+    -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
